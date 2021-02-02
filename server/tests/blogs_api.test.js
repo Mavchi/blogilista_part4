@@ -39,13 +39,14 @@ test('adding valid blog works', async () => {
     await api
         .post('/api/blogs')
         .send(new_blog)
+        .set({ Authorization: helper.token})
         .expect(200)
         .expect('Content-Type', /application\/json/)
 
     const blogsAtEnd = await Blog.find({})
     expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length + 1)
 })
-/*
+
 test('invalid blog is not added', async () => {
     const new_blog = new Blog({
         title: "Canonical string increase",
@@ -55,12 +56,13 @@ test('invalid blog is not added', async () => {
     await api
         .post('/api/blogs')
         .send(new_blog)
+        .set({ Authorization: helper.token})
         .expect(400)
 
     const blogsAtEnd = await Blog.find({})
     expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length)
 })
-*/
+
 test('when .likes is not given its value is 0', async () => {
     const new_blog = {
         title: "Canonical string increase",
@@ -71,6 +73,7 @@ test('when .likes is not given its value is 0', async () => {
     await api
         .post('/api/blogs')
         .send(new_blog)
+        .set({ Authorization: helper.token})
         .expect(200)
         .expect('Content-Type', /application\/json/)
 
@@ -88,7 +91,23 @@ test('server returnes 400 when new blog doesnt havve title OR author', async () 
     await api
         .post('/api/blogs')
         .send(new_blog)
+        .set({ Authorization: helper.token})
         .expect(400)
+
+    const blogsAtEnd = await Blog.find({})
+    expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length)
+})
+
+test('cant add blog without correct token', async () => {
+    const new_blog = new Blog({
+        title: "Canonical string increase",
+        url: "http://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD808.html",
+        likes: 0
+    })
+    await api
+        .post('/api/blogs')
+        .send(new_blog)
+        .expect(401)
 
     const blogsAtEnd = await Blog.find({})
     expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length)

@@ -36,6 +36,9 @@ const initialBlogs = [
     }
 ]
 
+token = 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJfMyIsImlkIjoiNjAxOTQ4YTA2MTVhNjI0YjQ4NWQyMmQyIiwiaWF0IjoxNjEyMjcxNDEyfQ.xx46Akg1kf73GKMBfNc6JoQ0Xn0Z7gl6r6U0sr_tDNA'
+
 module.exports = {
-    initialBlogs
+    initialBlogs,
+    token
 }
