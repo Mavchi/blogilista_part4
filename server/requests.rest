@@ -15,10 +15,10 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJfMyIsImlkIjoiNjAxOTQ4YTA2MTVhNjI0YjQ4NWQyMmQyIiwiaWF0IjoxNjEyMjY5NzQwfQ.tLy93Qx4rF6hGLYBs-WrKxbE-BjZj0PBgFDxQpvCuQo
 
 {
-    "title": "Testaan vielä",
+    "title": "Kohta luovutan",
     "author": "Aleksi K",
-    "url": "bing.com",
-    "likes": 1
+    "url": "github.com",
+    "likes": 6
 }
 ###
 DELETE http://localhost:3003/api/blogs/60151c6ac3d7d057675ee2c3
@@ -50,3 +50,7 @@ Content-Type: application/json
     "username": "user_3",
     "password": "sekret"
 }
+
+###
+delete http://localhost:3003/api/blogs/60194eb0528dc350fd26f2b1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJfMyIsImlkIjoiNjAxOTQ4YTA2MTVhNjI0YjQ4NWQyMmQyIiwiaWF0IjoxNjEyMjcxNDEyfQ.xx46Akg1kf73GKMBfNc6JoQ0Xn0Z7gl6r6U0sr_tDNA
