@@ -1,0 +1,32 @@
+GET http://localhost:3003/api/blogs
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title": "Testaan vielä",
+    "author": "Aleksi K",
+    "url": "bing.com",
+    "likes": 1
+}
+###
+DELETE http://localhost:3003/api/blogs/60151c6ac3d7d057675ee2c3
+###
+PUT http://localhost:3003/api/blogs/60151c6ac3d7d057675ee2c4
+Content-Type: application/json
+
+{
+    "title": "No johan nyt"
+}
+
+###
+get http://localhost:3003/api/users
+###
+post http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "username": "user_1",
+    "name": "Toni",
+    "password": "sekret"
+}
